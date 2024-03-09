@@ -4,22 +4,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: calc(.5rem + 0.75vw);
-}
-
-body {
     font-family: "Raleway";
 }
 
 
 h1 {
-    font-size: calc(1rem + 4vw);
+    font-size: calc(1rem + 4vw) !important;
     text-align: center;
 }
 
 .nombre {
     color: #038ac0;
-    font-size: calc(1rem + 5vw);
 }
 
 h2,
@@ -75,8 +70,6 @@ li a::after {
     transform: translate3d(-100%, 0, 0);
 }
 
-
-
 nav {
     text-align: center;
 }
@@ -85,6 +78,18 @@ nav {
 ul {
     list-style: none;
 }
+
+p {
+    line-height: 2em;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 .menu-container .nav-list {
     display: flex;
@@ -100,7 +105,7 @@ a::after {
     left: 0;
     width: 100%;
     height: 0.1em;
-    background-color: rgb(126, 204, 9);
+    background-color: #7ecc09;
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
 }
@@ -149,7 +154,7 @@ a:focus::after {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 300px) {
     .hero-section-text h1 {
         letter-spacing: 0;
         font-size: 50px;
@@ -183,18 +188,24 @@ h2 {
     justify-content: center;
 }
 
-p {
-    line-height: 2em;
-
-}
-
-img {
-    max-width: 100%;
-    height: auto;
+.image-container {
     display: block;
+    overflow: hidden;
 }
 
-@media (max-width: 1550px) {
+img.img-zoom {
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(50%);
+}
+
+/* The Transformation */
+img.img-zoom:hover {
+    filter: brightness(100%);
+    transform: scale(1.3);
+}
+
+@media (max-width: 1000px) {
     .container1 {
         display: flex;
         flex-direction: column;
@@ -204,11 +215,18 @@ img {
 
 button {
     color: white;
-    background: rgb(126, 204, 9);
+    background: #7ecc09;
     height: 2.5rem;
     border: none;
     border-radius: 5px;
     padding: .5rem 2rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: white;
+    color: #7ecc09;
 }
 
 .container-product2_3 {
@@ -228,28 +246,6 @@ button {
     margin-bottom: 1%;
 }
 
-@media (max-width: 786px) {
-    .container-product2_3, .container-product4_5_6  {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 2%;
-        
-    }
-
-    .conteiner-product2, .conteiner-product4, .conteiner-product5{
-        margin-bottom: 2%;
-    }
-}
-
-.precio {
-    font-weight: bold;
-    font-size: 2rem;
-}
-
-.margin {
-    margin: 0 5%;
-}
-
 .categories {
     display: flex;
     flex-direction: row;
@@ -259,21 +255,6 @@ button {
     margin-bottom: 1%;
     overflow: hidden;
 
-}
-
-
-
-.office {
-    background-image: url(../Imagenes/categoria1.jpg);
-
-}
-
-.home {
-    background-image: url(../Imagenes/categoria2.jpg);
-}
-
-.kitchen {
-    background-image: url(../Imagenes/categoria3.jpg);
 }
 
 .categories-container {
@@ -291,11 +272,47 @@ button {
 }
 
 .category-img {
-    border-radius: 1re;
+    border-radius: 1rem;
 }
 
 .nav-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+@media (max-width: 786px) {
+
+    .container-product2_3,
+    .container-product4_5_6 {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2%;
+
+    }
+
+    .conteiner-product2,
+    .conteiner-product4,
+    .conteiner-product5 {
+        margin-bottom: 2%;
+    }
+
+    .categories,
+    .nav-footer {
+        flex-direction: column;
+    }
+
+    .categories-container,
+    .nav-footer {
+        margin-bottom: 2%;
+    }
+}
+
+.precio {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.margin {
+    margin: 0 5%;
 }
